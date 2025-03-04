@@ -1,0 +1,66 @@
+<style>
+.d-flex{
+  display: flex;
+  margin-left:30rem;
+  } 
+  .btn-search{
+    color: white;
+    background-color:red;
+    height: 3rem;
+    border-radius: 50px;
+    padding: 0.25rem 1rem 0.25rem 1rem;
+    opacity: 0.8;
+    font-size: 0.8rem;
+    font-style: italic !important;
+  }
+  .btn-search:hover{
+    color: white;
+    background-color: red;
+  }
+  .search-inp{
+    color: black;
+    border-radius: 50px;
+    padding: 0.5rem 3rem 0.5rem 3rem; 
+  }
+
+</style>
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/listings"><i class="fa-solid fa-house"></i></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+    data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/listings">Explore</a>
+        </li>
+      </ul>
+      <div class="navbar-nav">
+        <form class="d-flex" role="search">
+          <input class="form-control me-2 search-inp" type="search" placeholder="Search Destinations" aria-label="Search">
+          <button class="btn btn-search" type="submit"><i class="fa-solid fa-magnifying-glass">Search</i></button>
+        </form>
+      </div>
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/listings/new">&Add</a>
+        </li>
+       <% if(!currentuser){%>
+        <li class="nav-item">
+          <a class="nav-link " href="/signup">Signup</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Login</a>
+        </li>
+        <%}%>
+        <%if(currentuser){%>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">Log Out</a>
+          </li>
+        <%}%>
+       
+      </ul>
+    </div>
+</nav>

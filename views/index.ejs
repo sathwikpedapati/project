@@ -1,0 +1,110 @@
+<%layout("/layouts/boilerplate")%>
+<body>
+  <style>
+    #filters{
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .filter{
+      text-align: center;
+      margin-right: 2rem;
+      margin-top: 2rem;
+      opacity: 0.7;
+    }
+    .filter:hover{
+      opacity: 1;
+    }
+    .tax-info{
+      display: none;
+      margin-bottom: auto;
+    }
+    .tax-toggle{
+      border-radius: 50px;
+      height: 3rem;
+      padding: 1 rem;
+      margin-left:1rem;
+      display: flex;
+      align-items: center;
+      opacity: 0.7;
+    }
+
+
+  </style>
+  <div id="filters">
+    <div class="filter">
+      <i class="fa-solid fa-fire"></i>
+      <p>Trending</p>
+  </div>
+  <div class="filter">
+    <i class="fa-solid fa-fire"></i>
+    <p>Trending</p>
+</div>
+<div class="filter">
+  <i class="fa-solid fa-bed"></i>
+  <p>Rooms</p>
+</div>
+<div class="filter">
+  <i class="fa-solid fa-mountain"></i>
+  <p>Mountains</p>
+</div>
+<div class="filter">
+  <i class="fa-solid fa-city"></i>
+  <p>Iconic-cities</p>
+</div>
+<div class="filter">
+  <i class="fa-solid fa-play"></i>
+  <p>Play</p>
+</div>
+<div class="filter">
+  <i class="fa-solid fa-building"></i>
+  <p>Buildings</p>
+</div>
+<div class="filter">
+  <i class="fa-solid fa-shop"></i>
+  <p>Shops</p>
+</div>
+<div class="filter">
+  <i class="fa-solid fa-landmark"></i>
+  <p>Landmarks</p>
+</div>
+<div class="tax-toggle">
+  <div class="form-check-reverse form-switch">
+    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+    <label class="form-check-label" for="flexSwitchCheckChecked">Applied taxes!</label>
+  </div>
+</div>
+  </div>
+    <h1>All Listings</h1>
+    <!-- <form method="get" action="/listings/new">
+        <button> create New listing</button>
+    </form> -->
+      <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+        <% for( let listing of alllisting){ %>
+          <a href="/listings/<%= listing._id%>" class="listing-link">
+            <div class="card col listing-card">
+                <img src="<%=listing.image.url%>" class="card-img-top" alt="listing_image" style="height:20rem">
+                <div class="card-img-overlay"></div>
+                <div class="card-body">
+                  <p class="card-text"><b><%= listing.title %></b> <br/>
+                  &#8377;<%=listing.price.toLocaleString("en-IN")%>/night <i class="tax-info">+18 % GST</i></p>
+                </div>
+              </div>
+          </a>
+          <% }%>
+      </div>
+      <script>
+        const tax=document.getElementById("flexSwitchCheckChecked");
+        tax.addEventListener('click', () => {
+          let tax=document.getElementsByClassName("tax-info");
+          for(info of tax){
+            if(info.style.display==="none"){
+              info.style.display="block";
+            }else{
+              info.style.display="none";
+            }
+          }
+        }
+      );
+        </script>
+</body>
