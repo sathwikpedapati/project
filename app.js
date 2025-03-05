@@ -12,6 +12,7 @@ const ejsMate=require("ejs-mate");
 const methodOveride=require("method-override");
 // const url='mongodb://127.0.0.1:27017/project'
 const listings=require("./routes/listing.js");
+const ExpressError=require("./utils/ExpressError.js");
 const reviews= require('./routes/review.js');
 const users=require("./routes/user.js");
 const MongoStore = require('connect-mongo');
