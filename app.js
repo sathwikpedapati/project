@@ -77,23 +77,23 @@ app.use((req,res,next)=>{
 //     let registereduser=await User.register(fakeuser,"sathwi@945");
 //     res.send(registereduser);
 // })
-app.get("/listing",async(req,res)=>{
-    let samplelisting=new listing({
-        title:"ratnam hostel",
-        description:"hello evereeyone ratnam hostel",
-        price:150,
-        location:"chodavaram",
-        country:"india",
-    });
-     await samplelisting.save()
-    .then((res)=>{
-       console.log("saved successfully");
-    })
-    .catch((err)=>{
-        console.log(err);
-    });
-    console.log(samplelisting);
-});
+// app.get("/listing",async(req,res)=>{
+//     let samplelisting=new listing({
+//         title:"ratnam hostel",
+//         description:"hello evereeyone ratnam hostel",
+//         price:150,
+//         location:"chodavaram",
+//         country:"india",
+//     });
+//      await samplelisting.save()
+//     .then((res)=>{
+//        console.log("saved successfully");
+//     })
+//     .catch((err)=>{
+//         console.log(err);
+//     });
+//     console.log(samplelisting);
+// });
 app.use("/listings",listings);
 app.use("/listings/:id/reviews",reviews);
 app.use("/",users);
